@@ -1,0 +1,15 @@
+[
+{
+  "modid": "WandOfEqualTrade",
+  "name": "Wand of Equal Trade MOD",
+  "description": "Add the Wand of Equal Trade.",
+  "version": "${version}",
+  "mcversion": "${mcversion}",
+  "url": "",
+  "updateUrl": "",
+  "authorList": ["Ato"],
+  "logoFile": "",
+  "screenshots": [],
+  "dependencies": []
+}
+]
