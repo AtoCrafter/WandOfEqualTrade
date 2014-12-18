@@ -40,8 +40,9 @@ class RendererWand extends IItemRenderer {
         GL11.glRotatef(30.0F, 0.0F, 0.0F, 1.0F)
       }
       case ItemRenderType.INVENTORY => {
-        GL11.glScalef(2f, 2f, 2f)
-        GL11.glTranslatef(0.0F, -1.0F, 0.0F)
+        GL11.glScalef(1.5f, 1.5f, 1.5f)
+        GL11.glTranslatef(-0.5F, -0.5F, 0.0F)     // 枠内に収まるように枠の半分だけずらす
+        GL11.glRotatef(-45.0F, 1.0F, 0.0F, 1.0F)  // INVENTORY_BLOCK ヘルパーにより既に傾いているので x,z 斜め 45 度回転
       }
       case _ => {}
     }
