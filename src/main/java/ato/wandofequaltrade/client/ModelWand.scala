@@ -6,12 +6,15 @@ import net.minecraft.client.model.{ModelBase, ModelRenderer}
 @SideOnly(Side.CLIENT)
 class ModelWand extends ModelBase {
 
-  setTextureOffset("wand.rod", 0, 0)
-  setTextureOffset("wand.head", 0, 0)
+  setTextureOffset("wand.rod", 8, 0)
+  setTextureOffset("wand.head", 0, 8)
   setTextureOffset("crystal.cube", 0, 0)
 
   val wand = new ModelRenderer(this, "wand")
   val crystal = new ModelRenderer(this, "crystal")
+
+  wand.setTextureSize(textureWidth, textureHeight)
+  crystal.setTextureSize(textureWidth, textureHeight)
 
   wand.addBox("rod", -1.0F, -6.0F, -1.0F, 2, 18, 2)
   wand.addBox("head", -1.5F, 8.0F, -1.5F, 3, 3, 3)

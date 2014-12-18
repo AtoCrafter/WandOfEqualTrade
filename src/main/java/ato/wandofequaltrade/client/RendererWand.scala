@@ -13,6 +13,7 @@ class RendererWand extends IItemRenderer {
 
   val model = new ModelWand()
   val mc = Minecraft.getMinecraft()
+  val texture = new ResourceLocation("WandOfEqualTrade:textures/items/WandOfEqualTrade.png")
 
   var tick = 0
 
@@ -27,7 +28,7 @@ class RendererWand extends IItemRenderer {
 
   override def renderItem(renderType: ItemRenderType, item: ItemStack, data: AnyRef*) {
     GL11.glPushMatrix()
-    mc.renderEngine.bindTexture(new ResourceLocation("WandOfEqualTrade:items/WandOfEqualTrade.png"))
+    mc.renderEngine.bindTexture(texture)
     renderType match {
       case ItemRenderType.EQUIPPED_FIRST_PERSON => {
         GL11.glTranslatef(0.8F, 0.9F, 0.1F)
@@ -40,7 +41,7 @@ class RendererWand extends IItemRenderer {
         GL11.glRotatef(30.0F, 0.0F, 0.0F, 1.0F)
       }
       case ItemRenderType.INVENTORY => {
-        GL11.glScalef(1.5f, 1.5f, 1.5f)
+        GL11.glScalef(1.4f, 1.4f, 1.4f)
         GL11.glTranslatef(-0.5F, -0.5F, 0.0F)     // 枠内に収まるように枠の半分だけずらす
         GL11.glRotatef(-45.0F, 1.0F, 0.0F, 1.0F)  // INVENTORY_BLOCK ヘルパーにより既に傾いているので x,z 斜め 45 度回転
       }
