@@ -1,3 +1,6 @@
+[![Build Status](https://drone.io/github.com/AtoCrafter/WandOfEqualTrade/status.png)](https://drone.io/github.com/AtoCrafter/WandOfEqualTrade/latest)
+
+
 # Wand of Equal Trade
 
 Minecraft MOD
