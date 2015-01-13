@@ -6,7 +6,6 @@ import net.minecraft.block.Block
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.enchantment.{Enchantment, EnchantmentHelper}
 import net.minecraft.entity.Entity
-import net.minecraft.entity.item.EntityItem
 import net.minecraft.entity.player.EntityPlayer
 import net.minecraft.init.Blocks
 import net.minecraft.item.{Item, ItemStack, ItemTool}
@@ -76,7 +75,8 @@ class ItemWandOfEqualTrade extends ItemTool(0, Item.ToolMaterial.EMERALD, new Ha
               }
             }
             if (id == Block.getIdFromBlock(world.getBlock(nx, ny, nz)) &&
-              meta == world.getBlockMetadata(nx, ny, nz) && // ToDo: TileEntity
+              meta == world.getBlockMetadata(nx, ny, nz) &&
+              world.getTileEntity(nx, ny, nz) == null &&
               !reputation)
               addCandidate(itemstack, nx, ny, nz)
           }
