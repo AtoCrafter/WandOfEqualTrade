@@ -6,14 +6,12 @@ import net.minecraft.block.Block
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.enchantment.{Enchantment, EnchantmentHelper}
 import net.minecraft.entity.Entity
-import net.minecraft.entity.player.EntityPlayer
+import net.minecraft.entity.player.{InventoryPlayer, EntityPlayer}
 import net.minecraft.init.Blocks
 import net.minecraft.item.{Item, ItemStack, ItemTool}
 import net.minecraft.nbt.{NBTTagCompound, NBTTagList}
 import net.minecraft.world.World
-import net.minecraftforge.common.MinecraftForge
 import net.minecraftforge.common.util.ForgeDirection
-import net.minecraftforge.event.entity.player.PlayerDestroyItemEvent
 
 import scala.collection.JavaConverters._
 
@@ -142,10 +140,8 @@ class ItemWandOfEqualTrade extends ItemTool(0, Item.ToolMaterial.EMERALD, new Ha
       val src = getSrcItem(player)
       if (src != null && src.tryPlaceItemIntoWorld(player, world, x, y, z, side, 0, 0, 0) &&
         world.getBlock(x, y, z) != Blocks.air) {
-        if (src.stackSize <= 0) {
-          MinecraftForge.EVENT_BUS.post(new PlayerDestroyItemEvent(player, src))
-          player.inventory.mainInventory((player.inventory.currentItem + 1) % 9) = null
-        }
+        if (src.stackSize <= 0)
+          player.inventory.setInventorySlotContents((player.inventory.currentItem + 1) % InventoryPlayer.getHotbarSize, null)
         return true
       }
     }
@@ -173,8 +169,8 @@ class ItemWandOfEqualTrade extends ItemTool(0, Item.ToolMaterial.EMERALD, new Ha
   }
 
   private def getSrcItem(player: EntityPlayer): ItemStack = {
-    val i = (player.inventory.currentItem + 1) % 9
-    return player.inventory.mainInventory(i)
+    val i = (player.inventory.currentItem + 1) % InventoryPlayer.getHotbarSize
+    return player.inventory.getStackInSlot(i)
   }
 
   private def hasWandNBT(is: ItemStack): Boolean = {
