@@ -41,7 +41,7 @@ class ItemWandOfEqualTrade extends ItemTool(0, Item.ToolMaterial.EMERALD, new Ha
   }
 
   override def onUpdate(itemstack: ItemStack, world: World, entity: Entity, p_77663_4_ : Int, p_77663_5_ : Boolean) {
-    if (hasWandNBT(itemstack)) {
+    if (!world.isRemote && hasWandNBT(itemstack)) {
       val wandtc = getWandNBT(itemstack)
       if (world.provider.dimensionId == wandtc.getInteger("Dim") &&
         entity.isInstanceOf[EntityPlayer] &&
