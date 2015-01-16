@@ -18,7 +18,7 @@ buildscript {
 apply plugin: 'scala'
 apply plugin: 'forge'
 
-version = "0.1.0-forMC1.7.10"
+version = "0.1.1-forMC1.7.10"
 group= "ato.wandofequaltrade"
 archivesBaseName = "WandOfEqualTrade"
 
