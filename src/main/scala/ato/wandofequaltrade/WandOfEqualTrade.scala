@@ -1,6 +1,5 @@
 package ato.wandofequaltrade
 
-import ato.wandofequaltrade.client.RendererWand
 import ato.wandofequaltrade.item.ItemWandOfEqualTrade
 import ato.wandofequaltrade.proxy.ProxyCommon
 import cpw.mods.fml.common.Mod.EventHandler
@@ -36,6 +35,6 @@ object WandOfEqualTrade {
       new Character('S'), Items.stick)
 
     // register other
-    proxy.registerItemRenderer(itemWandOfEqualTrade, new RendererWand())
+    proxy.registerItemRenderer
   }
 }

@@ -1,10 +1,11 @@
 package ato.wandofequaltrade.proxy
 
-import net.minecraft.item.Item
-import net.minecraftforge.client.{IItemRenderer, MinecraftForgeClient}
+import ato.wandofequaltrade.WandOfEqualTrade
+import ato.wandofequaltrade.client.RendererWand
+import net.minecraftforge.client.MinecraftForgeClient
 
 class ProxyClient extends ProxyCommon {
-  override def registerItemRenderer(item: Item, renderer: IItemRenderer) {
-    MinecraftForgeClient.registerItemRenderer(item, renderer)
+  override def registerItemRenderer {
+    MinecraftForgeClient.registerItemRenderer(WandOfEqualTrade.itemWandOfEqualTrade, new RendererWand())
   }
 }
