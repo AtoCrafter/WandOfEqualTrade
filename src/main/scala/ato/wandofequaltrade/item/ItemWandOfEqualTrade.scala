@@ -6,7 +6,7 @@ import net.minecraft.block.Block
 import net.minecraft.creativetab.CreativeTabs
 import net.minecraft.enchantment.{Enchantment, EnchantmentHelper}
 import net.minecraft.entity.Entity
-import net.minecraft.entity.player.{InventoryPlayer, EntityPlayer}
+import net.minecraft.entity.player.{EntityPlayer, InventoryPlayer}
 import net.minecraft.init.Blocks
 import net.minecraft.item.{Item, ItemStack, ItemTool}
 import net.minecraft.nbt.{NBTTagCompound, NBTTagList}
@@ -17,6 +17,7 @@ import scala.collection.JavaConverters._
 
 class ItemWandOfEqualTrade extends ItemTool(0, Item.ToolMaterial.EMERALD, new HashSet[Nothing]()) {
   setUnlocalizedName("WandOfEqualTrade")
+  setMaxDamage(-1)
   setCreativeTab(CreativeTabs.tabTools)
   setTextureName("WandOfEqualTrade:WandOfEqualTrade")
 
